@@ -1,92 +1,47 @@
-#2.Gün
-## Arrays (Diziler)
+#3.GÜN
 
-let john = "John Lennon"
-let paul = "Paul McCartney"
-let george = "George Harrison"
-let ringo = "Ringo Starr"
+###Swift neden bir Int'e Double ekleyemez?
+Double + Int → ondalık kısım kaybolabilir veya değer yuvarlanabilir.
+Int + Double → büyük sayılar doğru temsil edilemeyebilir.
 
-let beatles = [john, paul, george, ringo]
-
-
-##SETS
-
-let colors = Set(["red","green","blue"])
-
-Swift'te kümeler dizilerden neden farklıdır? 
- 
-Kümeler sırasızdır ve tekrarlar içeremezler; diziler ise sıralarını korur ve 
-tekrarlar içerebilirler
-
-##TUPLES
-
-Swift'te tuple'lar dizilerden nasıl farklıdır?
-Tuple'lar değiştirilemeyen sabit bir diziyi tutarken, değişken dizilerine süresiz 
-olarak öğeler eklenebilir.
-var website = (name: "Apple", url: "www.apple.com") =>TUPLE tarih eklemek istesem
-ekleyemem.
-var website = ["Apple", "www.apple.com"] => Dizi
-
-###NOT!!
-Swift'te dizi, sets veya tuple ne zaman kullanılmalıdır?
-Diziler sırayı korur ve tekrarlara sahip olabilir, kümeler(sets) sırasızdır ve
-tekrarlara sahip olamaz , tuple'lar ise içlerinde sabit tiplerde sabit sayıda 
-değer barındırır.
-
-##Dictioneries
-let heights = [
-    "Taylor Swift": 1.78,
-    "Ed Sheeran": 1.73
-]
-heights["Taylor Swift"]
-
-let favoriteIceCream = [
-    "Paul":"Chocalate",
-    "Sophie":"Vanilla"
-]
-
-favoriteIceCream["Paul"]
-favoriteIceCream["Charlotte"]
-let users = ["Taylor", "Taylor Swift"]
-let taylor = users["Taylor", default: "Anonymous"]
- 
-
-##Creating empty collections
-var teams = [String:String] ()
-teams["Paul"] = "Red"
-
-var words = Set<String>()
-var numbers = Set<Int>()
-
-var scores = Dictionary<String, Int>()
-var results = Array<Int>()
+###Swift'te operatör aşırı yüklemesine neden ihtiyaç duyulur?
++ operatörü sadece sayılarla sınırlı olsaydı, dizileri birleştirmek ya da stringleri eklemek gibi işlemler için farklı yöntemler yazmak gerekirdi.
 
 
-##enums 
-Enum'lar, sabit değerleri güvenli ve anlamlı şekilde temsil etmemizi sağlar. 
-Swift'te çok güçlü ve çok yönlüdürler
+#4.GÜN
 
-import UIKit
+###Swift döngülerde neden alt çizgi kullanır?
 
-let result = "failure"
-let result2 = "failed"
-let result3 = "fail"
-
-enum Result {
-    case success
-    case failure
-}
-
-let result4 = Result.failure
+Döngülerin size verdiği sabiti kullanmazsanız for, Swift'in gereksiz değerler 
+oluşturmaması için bunun yerine alt çizgi kullanmalısınız
 
 
-enum Activity {
-    case running(destination: String)
-    case talking(topic: String)
-    case singing(volume: Int)
-}
+###While döngüsünü ne zaman kullanmalısınız?
+Temel fark, fordöngülerin genellikle sonlu dizilerle kullanılmasıdır: örneğin, 
+1'den 10'a kadar olan sayılar veya bir dizideki öğeler arasında döngü yaparız. 
+Öte yandan, whiledöngüler herhangi bir keyfi koşul yanlış olana kadar döngü 
+yapabilir, bu da durmalarını söyleyene kadar döngüye girmelerine olanak tanır.
 
-let talking = Activity.talking(topic: "football")
 
-Raw value’lar, enum’ların hem kod içinde güvenli kullanılmasını sağlar hem de dış 
-sistemlerle veri alışverişinde kolaylık sunar.
+
+###Neden repeat kullanılır?
+Kod tekrarından kaçınmak için.
+
+
+
+break sadece bulunduğu döngüden çıkar.
+break outer loop ile birden fazla döngüden çıkabilirsin.
+
+
+
+
+###Swift’te Etiketli İfadeler Neden Var?
+Etiketli ifadeler, doğrudan belirli bir döngüyü durdurmak için kullanılır.
+Performansı artırır ve gereksiz işlemleri önler.
+
+
+###Break ve continue Ne Zaman Kullanılır?
+*break*   
+Döngüden tamamen çık, Gerekli koşul sağlandığında döngüyü bitir
+*continue*   
+Sadece bu döngü adımını atla, Bazı adımları atlayıp döngüyü sürdürmek için
