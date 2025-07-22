@@ -1,56 +1,35 @@
-# Swift
-1.GÜN
-1.Variables
-var favoriteShow = "Orange is the New Black"
-favoriteShow = "The Good Place"
-favoriteShow = "Doctor Who"
+### Swift - 1. Gün Notları
 
-//Değişkenler, programımızda geçici bilgiler depolamamızı sağlar,değiştirilebilir.
+1️⃣ Variable  
+➡️ Değişkenler, programımızda geçici bilgiler depolamamızı sağlar, değiştirilebilirler.
 
-2.Strings and integers
-Why is Swift a type-safe language?
-var meaningOfLife = 42
-meaningOfLife = "Forty two" (HATA int e str değer atadı)
+2️⃣ Strings and Integers  
+Why is Swift a type-safe language?  
+✅ Swift type-safe bir dildir. Yani bir değişkenin tipi belirlendikten sonra, o tipe uygun olmayan değer atanamaz.
 
+3️⃣ Multi-line Strings  
+Why does Swift need multi-line strings?  
+Üçlü tırnak `"""` kullanarak, dizeleri birden fazla satıra yazabiliriz. Bu, metnin daha okunabilir olmasını sağlar.
 
-3.Multi-line strings
-Optional: Why does Swift need multi-line strings?
-Üçlü tırnak işaretleri kullanırsanız, dizelerinizi istediğiniz kadar satıra yazabilirsiniz; bu da metnin kodunuzda kolayca okunabilmesi anlamına gelir
+4️⃣ Doubles and Booleans  
+Why does Swift need both Doubles and Integers?  
+➡️ Swift, bir Double'a doğrudan Int eklenmesini güvenli bulmaz. Tip uyumsuzluklarına karşı koruma sağlar.
 
-var burns = """
-The best laid schemes
-O’ mice and men
-Gang aft agley
-"""
+5️⃣ String Interpolation  
+Why does Swift have string interpolation?  
+➡️ Swift, değişkenleri veya diğer verileri doğrudan string içine yerleştirme imkanı verir. Bu da kodun okunabilirliğini artırır.
 
-4.Doubles and Booleans
-var pi = 3.141
-var awesome = true
- Why does Swift need both Doubles and Integers?
-var myInt = 1
-var myDouble = 1.0
-Swift, bir double'a tam sayı eklemenin güvenli olmadığını düşünür izin vermez.
+6️⃣ Constants  
+Swift'te değişkenlerin yanı sıra sabitler (constants) neden var?  
+➡️ Sabitler (`let`) sayesinde verinin istemeden değiştirilmesi önlenir. Böylece hataların önüne geçilmiş olur.
 
-5.String interpolation
-Optional: Why does Swift have string interpolation?
-var city = "Cardiff"
-var message = "Welcome to \(city)!" 
-Swift, her türlü veriyi dize enterpolasyonuna yerleştirme yeteneğine sahiptir
-
-6.Constants
-Optional: Swift'te değişkenlerin yanı sıra sabitler de neden var?
-Bunun nedeni sorunlardan kaçınmaktır.Oluşturduğunuz herhangi bir değişkeni istediğiniz zaman ve istediğiniz sıklıkta değiştirebilirsiniz, bu nedenle biraz kontrol kaybedersiniz
-
-
-7.Type annotations
-
+7️⃣ Type Annotations  
+```swift
 var percentage: Double = 99
 var name: String
 
-Optional: Why does Swift have type annotations?
-1.Swift hangi tipin kullanılması gerektiğini çözemiyor.
-2.Swift'in varsayılan türünden farklı bir tür kullanmasını istiyorsunuz.
-3.Şimdilik bir değer atamak istemiyorsunuz.
 
-
-
+Why does Swift have type annotations?  
+➡️Swift hangi tipin kullanılması gerektiğini çözemeyebilir.
+➡️Swift'in varsayılan türünden farklı bir tür kullanmak isteyebilirsiniz.
+➡️Henüz bir değer atamak istemiyorsanız ama tipini belirtmeniz gerekiyordur.
