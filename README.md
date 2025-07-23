@@ -1,47 +1,67 @@
-#3.GÜN
+📘 5. Gün - Swift Notları
 
-###Swift neden bir Int'e Double ekleyemez?
-Double + Int → ondalık kısım kaybolabilir veya değer yuvarlanabilir.
-Int + Double → büyük sayılar doğru temsil edilemeyebilir.
+✅ return Zorunluluğu
 
-###Swift'te operatör aşırı yüklemesine neden ihtiyaç duyulur?
-+ operatörü sadece sayılarla sınırlı olsaydı, dizileri birleştirmek ya da stringleri eklemek gibi işlemler için farklı yöntemler yazmak gerekirdi.
+Swift'te eğer bir fonksiyonun gövdesi yalnızca bir ifade içeriyorsa, return yazmak zorunda 
+değilsin. Ancak değişken tanımı, döngü başlatma gibi birden fazla işlem varsa return yazılması 
+zorunludur.
 
+🔁 Swift’te Bir Fonksiyondan Birden Fazla Değer Döndürmek
 
-#4.GÜN
+func getUser() -> (first: String, last: String) {
+    (first: "Taylor", last: "Swift")
+}
 
-###Swift döngülerde neden alt çizgi kullanır?
+let user = getUser()
+print(user.first) // Taylor
+print(user.last)  // Swift
 
-Döngülerin size verdiği sabiti kullanmazsanız for, Swift'in gereksiz değerler 
-oluşturmaması için bunun yerine alt çizgi kullanmalısınız
+🏷️ Dış ve İç Parametre İsimleri
+Swift’te dış ve iç parametre isimleri farklı olabilir:
 
+func setAge(for person: String, to value: Int) {
+    print("\(person) is now \(value)")
+}
 
-###While döngüsünü ne zaman kullanmalısınız?
-Temel fark, fordöngülerin genellikle sonlu dizilerle kullanılmasıdır: örneğin, 
-1'den 10'a kadar olan sayılar veya bir dizideki öğeler arasında döngü yaparız. 
-Öte yandan, whiledöngüler herhangi bir keyfi koşul yanlış olana kadar döngü 
-yapabilir, bu da durmalarını söyleyene kadar döngüye girmelerine olanak tanır.
+setAge(for: "Paul", to: 40)
 
+for ve to: Fonksiyon çağrılırken dışarıdan kullanılır.
+person ve value: Fonksiyon içinde kullanılır.
 
+📌 Variadic Functions (Değişken Sayıda Parametre)
+Bir fonksiyona aynı türden birden fazla parametre göndermek için kullanılır. ... ile tanımlanır.
 
-###Neden repeat kullanılır?
-Kod tekrarından kaçınmak için.
+func example(age: Int, _ names: String...) {
+    for name in names {
+        print("\(name) is \(age) years old.")
+    }
+}
 
+example(age: 25, "Alice", "Bob", "Charlie")
+🔹 Not: Variadic parametre her zaman son sırada olmalıdır ve yalnızca bir tane olabilir.
 
+🔄 inout Ne İşe Yarar?
+inout, fonksiyona referansla (by reference) veri gönderilmesini sağlar. Böylece fonksiyon içinde
+yapılan değişiklik, orijinal değişkende de uygulanır.
 
-break sadece bulunduğu döngüden çıkar.
-break outer loop ile birden fazla döngüden çıkabilirsin.
+🧪 Örnek:
 
+func doubleInPlace(number: inout Int) {
+    number *= 2
+}
 
+var myNum = 10
+doubleInPlace(number: &myNum)
+print(myNum) // 20
+📝 Dikkat Edilmesi Gerekenler:
+✅ var ile tanımlamalısın: inout ile çalışan parametreler değiştirileceği için let ile değil var ile tanımlanmalıdır.
 
+✅ & sembolü kullanılmalı: Fonksiyona parametre gönderirken &myNum diyerek “bu değişkenin orijinalini gönderiyorum” anlamına gelir.
 
-###Swift’te Etiketli İfadeler Neden Var?
-Etiketli ifadeler, doğrudan belirli bir döngüyü durdurmak için kullanılır.
-Performansı artırır ve gereksiz işlemleri önler.
+📌 Neden inout?
+Fonksiyonun return etmesini beklemeden, bir değişkeni doğrudan değiştirmek için kullanılır.
 
+Performans açısından bazı durumlarda daha verimlidir.
 
-###Break ve continue Ne Zaman Kullanılır?
-*break*   
-Döngüden tamamen çık, Gerekli koşul sağlandığında döngüyü bitir
-*continue*   
-Sadece bu döngü adımını atla, Bazı adımları atlayıp döngüyü sürdürmek için
+C/C++'taki pointer kullanımına benzer.
+
