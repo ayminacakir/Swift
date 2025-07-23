@@ -1,67 +1,76 @@
-📘 5. Gün - Swift Notları
+📌 Swift'te Closure (Kapanış) Nedir?
+Closure, Swift’te bir değişkene atanabilen, parametre alabilen ve değer 
+döndürebilen adı olmayan fonksiyonlardır. Fonksiyonlar gibi 
+davranabilirler, ancak yazım şekilleri farklıdır.
 
-✅ return Zorunluluğu
+Closure’lar genellikle şu amaçlarla kullanılır:
 
-Swift'te eğer bir fonksiyonun gövdesi yalnızca bir ifade içeriyorsa, return yazmak zorunda 
-değilsin. Ancak değişken tanımı, döngü başlatma gibi birden fazla işlem varsa return yazılması 
-zorunludur.
+Belirli bir işlevi bir değişkende saklamak
 
-🔁 Swift’te Bir Fonksiyondan Birden Fazla Değer Döndürmek
+Bu işlevi başka bir fonksiyona parametre olarak vermek
 
-func getUser() -> (first: String, last: String) {
-    (first: "Taylor", last: "Swift")
+Bu işlevi daha sonra çalıştırmak üzere saklamak
+
+Bu özellikleri sayesinde, "Şu işi senin yapmanı istiyorum, ama şimdi 
+değil." gibi bir senaryoyu uygulamak için oldukça uygundurlar.
+
+🧩 Closure Yazım Şekli
+
+let payment = { (user: String, amount: Int) in
+    // kod bloğu
+}
+in anahtar kelimesi, parametrelerin bittiği ve kod bloğunun başladığı yeri belirtir.
+
+Closure'lar parametrelerini parantez içinde yazarlar. Bu sayede, Swift dilinde tuple yapılarıyla karışıklık önlenmiş olur.
+
+Örneğin:
+
+// Bu bir tuple gibi görünür, closure değildir:
+let payment = (user: String, amount: Int)
+
+🔁 Closure’ları Fonksiyonlara Parametre Olarak Verme
+Closure’lar, fonksiyonlara parametre olarak da verilebilir. Bu, özellikle
+fonksiyonel programlama tarzında yaygındır.
+
+func performAction(action: () -> Void) {
+    action()
 }
 
-let user = getUser()
-print(user.first) // Taylor
-print(user.last)  // Swift
+Kullanımı:
 
-🏷️ Dış ve İç Parametre İsimleri
-Swift’te dış ve iç parametre isimleri farklı olabilir:
-
-func setAge(for person: String, to value: Int) {
-    print("\(person) is now \(value)")
+performAction {
+    print("Closure çalıştı.")
 }
 
-setAge(for: "Paul", to: 40)
+🔄 Dönüş Değeri Olan Closure Parametreleri
+Closure’lar sadece işlem yapmakla kalmaz, değer de döndürebilirler:
 
-for ve to: Fonksiyon çağrılırken dışarıdan kullanılır.
-person ve value: Fonksiyon içinde kullanılır.
 
-📌 Variadic Functions (Değişken Sayıda Parametre)
-Bir fonksiyona aynı türden birden fazla parametre göndermek için kullanılır. ... ile tanımlanır.
-
-func example(age: Int, _ names: String...) {
-    for name in names {
-        print("\(name) is \(age) years old.")
-    }
+func makePayment(using method: (String, Int) -> Bool) {
+    let success = method("Ahmet", 100)
+    print("Ödeme sonucu: \(success)")
 }
 
-example(age: 25, "Alice", "Bob", "Charlie")
-🔹 Not: Variadic parametre her zaman son sırada olmalıdır ve yalnızca bir tane olabilir.
-
-🔄 inout Ne İşe Yarar?
-inout, fonksiyona referansla (by reference) veri gönderilmesini sağlar. Böylece fonksiyon içinde
-yapılan değişiklik, orijinal değişkende de uygulanır.
-
-🧪 Örnek:
-
-func doubleInPlace(number: inout Int) {
-    number *= 2
+makePayment { (user, amount) in
+    return amount < 500
 }
+💡 $0 Söz Dizimi
+Swift’te closure’lar kısa yazılabilir. map, filter, sorted, reduce gibi 
+sık kullanılan fonksiyonlarla beraber $0, $1, $2 gibi otomatik 
+isimlendirilmiş parametreler kullanılabilir.
 
-var myNum = 10
-doubleInPlace(number: &myNum)
-print(myNum) // 20
-📝 Dikkat Edilmesi Gerekenler:
-✅ var ile tanımlamalısın: inout ile çalışan parametreler değiştirileceği için let ile değil var ile tanımlanmalıdır.
+Uygun Kullanım:
 
-✅ & sembolü kullanılmalı: Fonksiyona parametre gönderirken &myNum diyerek “bu değişkenin orijinalini gönderiyorum” anlamına gelir.
+Closure kısa ve okunabilir olduğunda
 
-📌 Neden inout?
-Fonksiyonun return etmesini beklemeden, bir değişkeni doğrudan değiştirmek için kullanılır.
+Tek parametreli closure'larda
 
-Performans açısından bazı durumlarda daha verimlidir.
+let numbers = [1, 2, 3, 4]
+let doubled = numbers.map { $0 * 2 } // [2, 4, 6, 8]
 
-C/C++'taki pointer kullanımına benzer.
+Kullanılmaması Gereken Durumlar:
+
+Closure içinde çok sayıda parametre varsa
+
+Parametrelere birden fazla kez erişiliyorsa (okunabilirliği azaltır)
 
