@@ -43,6 +43,7 @@ sayHello(to: "Alice")
  🔹 name → iç isim (internal parameter name)*/
 
 *//*
+//Omitting parameter labels
 func greet(_ person: String) {
     print("Hello, \(person)!")
 }
@@ -54,7 +55,7 @@ print("Hello", terminator: " ") //print()'in satır sonu davranışını kontrol
 print("World")
 
 //Kendi Fonksiyonlarında Varsayılan Parametre Tanımlama
-
+//Default parameters
 func greet(_ person: String, nicely: Bool = true) {
     if nicely == true {
         print("Hello, \(person)!")
@@ -62,6 +63,9 @@ func greet(_ person: String, nicely: Bool = true) {
         print("Oh no, it's \(person) again...")
     }
 }
+
+greet("Taylor")
+greet("Taylor", nicely: false)
 
 
 func square(numbers:Int...){  //, Int...sıfır veya daha fazla tam sayı (potansiyel olarak yüzlerce) olabilir.
