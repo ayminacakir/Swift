@@ -17,13 +17,6 @@ yazabilirsin.
 
 5️⃣ Class Nesneleri Birden Fazla Değişken Tarafından Paylaşılabilir
 
-Class ile oluşturulan bir nesne bellekte bir kere oluşur.
-
-O nesneye işaret eden birden fazla referans olabilir.
-
-Bu, mutability (değişebilirlik) açısından önemlidir.
-
-
 
 Struct’lar otomatik başlatıcıya sahiptir, sınıflar sahip değildir.
 
@@ -36,8 +29,9 @@ Kalıtım kullandığında, super.init(...) ile üst sınıfın başlatıcısın
 
 
 
-🎯 Overriding Ne Zaman Kullanılır?
-Metot ezmenin temel amacı:
+# Overriding Ne Zaman Kullanılır?
+
+## Overriding temel amacı:
 
 “Üst sınıfın tüm davranışını koru ama sadece küçük bir kısmını değiştir.”
 
@@ -45,12 +39,11 @@ Yani sıfırdan yeni bir sınıf yazmak yerine, hazır bir sınıfı özelleşti
 
 
 
-//Fİnal Class
-/*final class, başka bir sınıf tarafından kalıtılamaz (subclass edilemez).
+# Fİnal Class
+final class, başka bir sınıf tarafından kalıtılamaz (subclass edilemez).
+Yani, bu sınıfın özellikleri ve metotları üzerine yazılamaz (override edilemez) ve bu sınıftan yeni bir alt sınıf oluşturulamaz.*/
  
- Yani, bu sınıfın özellikleri ve metotları üzerine yazılamaz (override edilemez) ve bu sınıftan yeni bir alt sınıf oluşturulamaz.*/
- 
- Final Class Nedir? Neden Kullanılır?
+# Final Class Nedir? Neden Kullanılır?
 Swift’te bazı sınıfların (classes) başka sınıflar tarafından miras alınmasını (inheritance) istemeyebilirsin.
 
 İşte bu durumda final anahtar kelimesi devreye girer:
@@ -61,7 +54,7 @@ Yani, bu sınıfın özellikleri ve metotları üzerine yazılamaz (override edi
 
 
 
-🧬 Sınıflar ve Yapılar Kopyalandığında Ne Olur?
+# Sınıflar ve Yapılar Kopyalandığında Ne Olur?
 
 Swift’te struct (yapı) ve class (sınıf) yapıları arasındaki en önemli farklardan biri, kopyalandıklarında nasıl davrandıklarıdır.
 
@@ -73,7 +66,7 @@ Bu fark, programlamada oldukça önemlidir çünkü yapılar veri güvenliği ve
 
 
 
-⚠️ Neden Bu Fark Önemli?
+# Neden Bu Fark Önemli?
 Büyük bir uygulamada bir kullanıcı (User) nesnesini her yerde kullanıyorsun diyelim.
 Eğer bu nesne bir class ise:
 
@@ -89,12 +82,8 @@ Bir değişiklik diğer yerleri etkilemezdi.
 
 Bu, daha güvenli ve öngörülebilir olurdu.
 
-✅ Ne Zaman Class, Ne Zaman Struct?
-Kullanım Durumu    Tercih
-Paylaşılan, tek bir nesne olsun, herkes aynı veriyi görsün    class (referans tipi)
-Herkes kendi kopyasını alsın, değişiklikler izole olsun    struct (değer tipi)
 
-📌 Özet
+## Özet
 struct → kopyalanınca ayrı nesne oluşur. Güvenlidir.
 
 class → kopyalanınca aynı nesne paylaşılır. Dikkatli kullanılmalı.
@@ -103,14 +92,14 @@ Swift geliştiricileri genellikle öncelikle struct tercih eder, ihtiyaç varsa 
 
 
 
-Neden class nesnelerinin deinit'e ihtiyacı var?
+# Neden class nesnelerinin deinit'e ihtiyacı var?
 Sınıflar referans tipi (reference type) olduğu için aynı nesneye birden fazla değişken referans edebilir.
 
 Bu durum, hangi anda o nesnenin gerçekten silinmesi gerektiğini karmaşık hale getirir.
 
 Bunun için Swift, ARC (Automatic Reference Counting) adlı bir sistem kullanır:
 
-🔢 ARC Nasıl Çalışır?
+# ARC Nasıl Çalışır?
 Her class nesnesi için bir referans sayacı (reference count) tutulur.
 
 Yeni bir değişken o nesneye işaret ederse: Sayı +1 artar.
@@ -119,7 +108,7 @@ Bir değişken artık nesneye işaret etmiyorsa: Sayı -1 azalır.
 
 Sayı 0 olduğunda: Kimse o nesneyi kullanmıyor demektir, deinit çağrılır ve nesne yok edilir.
 
-🧱 Peki struct neden deinit içermez?
+# Peki struct neden deinit içermez?
 struct yapılar değer tipi (value type) olduğu için her kopya bağımsızdır.
 
 Bu yüzden bir struct'ın ne zaman yok edildiğini bilmeye gerek yoktur.
@@ -149,7 +138,7 @@ Swift, sınıf nesnelerini ARC (Automatic Reference Counting) ile yönetir.
 
 
 
-Mutability (Değiştirilebilirlik)
+# Mutability (Değiştirilebilirlik)
 Swift’te struct ve class’lar değiştirilebilirlik açısından farklı davranır:
 
 Struct (Yapı): Bir struct sabit (let) olarak tanımlanmışsa, içindeki var özellikler değiştirilemez. Çünkü struct bir değer tipidir ve değişiklik tüm yapının yeniden oluşturulması anlamına gelir, bu da sabit bir değer için mümkün değildir.
