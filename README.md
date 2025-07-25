@@ -1,5 +1,6 @@
 
 ✅ #2.Gün
+
 1️⃣ ## Arrays (Diziler)
 
 let john = "John Lennon"
