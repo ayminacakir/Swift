@@ -11,22 +11,16 @@ DerivedData/
 Packages/
 Package.resolved
 
-# macOS işletim sistemi tarafından otomatik oluşturulan dosyalar
+# macOS tarafından oluşturulan sistem dosyaları
 .DS_Store
 
-# Playground geçici dosyaları (eğer kullanıyorsan)
+# Playground geçici dosyaları
 timeline.xctimeline
 playground.xcworkspace
-
-# Test çıktıları
-*.xctest
-
-# Kişisel ayarlar
-*.idea/
-*.swp
-*.lock
-
 
 # Log dosyaları
 *.log
 
+# Kişisel editör dosyaları (VS Code, Xcode, vb.)
+*.swp
+.idea/
