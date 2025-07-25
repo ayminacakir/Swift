@@ -39,9 +39,6 @@ Yani sıfırdan yeni bir sınıf yazmak yerine, hazır bir sınıfı özelleşti
 
 
 
-# Fİnal Class
-final class, başka bir sınıf tarafından kalıtılamaz (subclass edilemez).
-Yani, bu sınıfın özellikleri ve metotları üzerine yazılamaz (override edilemez) ve bu sınıftan yeni bir alt sınıf oluşturulamaz.*/
  
 # Final Class Nedir? Neden Kullanılır?
 Swift’te bazı sınıfların (classes) başka sınıflar tarafından miras alınmasını (inheritance) istemeyebilirsin.
@@ -64,23 +61,6 @@ Class (Sınıf) ise referans tipi (reference type) olarak çalışır. Yani bir 
 
 Bu fark, programlamada oldukça önemlidir çünkü yapılar veri güvenliği ve öngörülebilirlik açısından daha avantajlıdır. Sınıflar ise özellikle ortak veri paylaşımı gereken durumlarda kullanılır, fakat dikkatli yönetilmezse istenmeyen yan etkilere neden olabilir.
 
-
-
-# Neden Bu Fark Önemli?
-Büyük bir uygulamada bir kullanıcı (User) nesnesini her yerde kullanıyorsun diyelim.
-Eğer bu nesne bir class ise:
-
-Bir yerde yapılan değişiklik, tüm uygulamayı etkileyebilir.
-
-Bu, karmaşık hatalara yol açabilir.
-
-Ama bu nesne bir struct olsaydı:
-
-Her yer kendi kopyasını kullanırdı.
-
-Bir değişiklik diğer yerleri etkilemezdi.
-
-Bu, daha güvenli ve öngörülebilir olurdu.
 
 
 ## Özet
@@ -127,7 +107,7 @@ Kodun anlamlı ve okunabilir olması gerektiğini savunan geliştirici Anne Caha
 
 Bu, deinit fonksiyonunun kodun sonunda yazılmasının hem okunabilirlik hem de anlam açısından mantıklı olduğunu vurgular.
 
-✅ Özet
+### Özet
 class → init() ve deinit destekler.
 
 deinit, sınıf bellekte yok edilmeden önce çalışır.
