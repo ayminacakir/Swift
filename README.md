@@ -1,3 +1,4 @@
+
 #2.Gün
 ## Arrays (Diziler)
 
