@@ -1,0 +1,30 @@
+# Xcode tarafından oluşturulan klasör ve dosyalar
+build/
+DerivedData/
+*.xcworkspace
+*.xcuserdata
+*.xcuserstate
+*.xcscheme
+
+# Swift Package Manager (SwiftPM)
+.build/
+Packages/
+Package.resolved
+
+# macOS işletim sistemi tarafından otomatik oluşturulan dosyalar
+.DS_Store
+
+# Playground geçici dosyaları (eğer kullanıyorsan)
+timeline.xctimeline
+playground.xcworkspace
+
+# Test çıktıları
+*.xctest
+
+# Kişisel ayarlar
+*.idea/
+*.swp
+*.lock
+
+# Log dosyaları
+*.log
