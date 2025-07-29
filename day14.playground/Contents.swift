@@ -232,7 +232,7 @@ print(name.count) // ❌ ÇÖKER
 
  Özellikle UIKit gibi Apple framework’lerinde IBOutlet tanımlarında kullanılır:*/
 
-
+/*
 
 //Optional chaining
 
@@ -251,3 +251,212 @@ let album = albumReleased(year: 2006)?.uppercased() ?? "unknown"
 print("The album is \(album)")
 
 
+
+
+var score = 60
+
+if score >= 75 && score <= 100{
+    print("çok zekisin")
+} else if score >= 50 {
+    print("idare edersin")
+} else if score >= 25 {
+    print("işin zor ")
+} else if score >= 0 {
+    print("senden hiç bir şey olmaz")
+} else {
+    print("inanılmaz")
+}
+
+if score >= 60 {
+    print("geçti")
+} else {
+    print("kaldı")
+}
+
+
+// ternary if
+score >= 60 ? print("geçti") : print("kaldı")
+
+
+//enum
+/*Belirli bir olası değer kümesini tanımlamak için kullanılır.
+*/
+
+enum WeatherType {
+    case sun, cloud, rain, wind, snow
+}
+
+func getHaterStatus(weather: WeatherType) -> String? {
+    if weather == .sun {
+        return nil
+    } else {
+        return "Hate"
+    }
+}
+
+
+func getHaterStatus(weather: WeatherType) -> String? {
+    switch weather {
+    case .sun:
+        return nil
+    case .cloud, .wind:
+        return "dislike"
+    case .rain, .snow:
+        return "hate"
+    }
+}
+
+
+//Enum İçine Değer Eklemek (Associated Values):
+
+enum WeatherType {
+    case sun
+    case cloud
+    case rain
+    case wind(speed: Int)
+    case snow
+}
+
+
+// Şartlı Eşleştirme (Pattern Matching):
+ 
+func getHaterStatus(weather: WeatherType) -> String? {
+    switch weather {
+    case .sun:
+        return nil
+    case .wind(let speed) where speed < 10:
+        return "meh"
+    case .cloud, .wind:
+        return "dislike"
+    case .rain, .snow:
+        return "hate"
+    }
+}
+
+*/
+
+//Structs
+
+struct Person {
+    var clothes: String
+    var shoes: String
+}
+
+let taylor = Person(clothes: "T-shirts", shoes: "sneakers")
+let other = Person(clothes: "short skirts", shoes: "high heels")
+
+var taylorCopy = taylor
+taylorCopy.shoes = "flip flops"
+
+print(taylor)
+print(taylorCopy)
+
+print(taylor.clothes)
+print(other.shoes)
+
+
+struct Person2 {
+    var clothes: String
+    var shoes: String
+    
+    func describe() {
+        print("I like wearing \(clothes) with \(shoes)")
+    }
+}
+
+let taylor2 = Person(clothes: "T-shirts", shoes: "sneakers")
+taylor.describe()
+
+
+//Bir yapı içine bir fonksiyon yazdığınızda, ona metot denir.
+
+
+
+
+//CLASSES
+
+class Person {    //Bu sınıf hatalıdır çünkü clothes ve shoes değişkenlerine değer verilmemiştir. Swift, sınıflarda otomatik init(...) oluşturmaz. Bu yüzden:
+    
+    var clothes: String
+    var shoes: String
+    
+    init(clothes: String, shoes: String){
+        self.clothes = clothes
+        self.shoes = shoes
+    }
+}
+
+class Singer {
+    var name: String
+    var age: Int
+    
+    init(name: String, age: Int){
+        self.name = name
+        self.age = age
+    }
+    
+    func sing(){
+        print("La la la la")
+    }
+    
+}
+
+class CountrySinger: Singer {
+    override func sing(){
+        print("Trucks, guitars, and liquor")
+    }
+}
+
+var taylor = CountrySinger(name: "Taylor", age: 25)
+taylor.sing()
+
+//override → Üst sınıftan gelen bir metodu yeniden tanımlamak için kullanılır.
+
+
+
+
+//super.init Üst Sınıfa Parametre Geçmek
+
+/*Eğer alt sınıfın kendine ait yeni bir özelliği varsa, o özelliğe değer verdikten sonra super.init(...) ile üst sınıfın init’ine değer geçirmen gerekir*/
+
+class Singer2 {
+    var name: String
+    var age: Int
+
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+
+    func sing() {
+        print("La la la la")
+    }
+}
+
+class HeavyMetalSinger: Singer {
+    var noiseLevel: Int
+
+    init(name: String, age: Int, noiseLevel: Int) {
+        self.noiseLevel = noiseLevel
+        super.init(name: name, age: age)
+    }
+
+    override func sing() {
+        print("Grrrrr rargh rargh rarrrrgh!")
+    }
+}
+
+/*Swift kodunun bazı kısımları Objective-C tarafında da çalışacaksa, o fonksiyona @objc etiketi eklemen gerekir.*/
+@objc func delayedMethod() {
+    print("This method can be called by Objective-C")
+}
+
+@objcMembers class MyClass: NSObject {
+    func myFunc() { ... }
+}
+
+
+/*
+SwiftUI → struct ile arayüz yapar
+UIKit → class ile arayüz yapar
+*/
