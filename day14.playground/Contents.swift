@@ -293,7 +293,7 @@ func getHaterStatus(weather: WeatherType) -> String? {
         return "Hate"
     }
 }
-
+/*İkinci değişiklik şuydu: if weather == .sunBunu açıkça belirtmeme gerek yoktu WeatherType.sunçünkü Swift bir değişkenle karşılaştırma yaptığımı biliyor */
 
 func getHaterStatus(weather: WeatherType) -> String? {
     switch weather {
@@ -316,7 +316,7 @@ enum WeatherType {
     case wind(speed: Int)
     case snow
 }
-
+/*Swift'in en güçlü özelliklerinden biri, numaralandırmalara sizin tanımladığınız değerler atanabilmesidir. */
 
 // Şartlı Eşleştirme (Pattern Matching):
  
@@ -366,6 +366,8 @@ struct Person2 {
 
 let taylor2 = Person(clothes: "T-shirts", shoes: "sneakers")
 taylor.describe()
+
+/*Bir yapıyı diğerine atarsanız, Swift bunu perde arkasında kopyalar, böylece orijinalinin tam ve bağımsız bir kopyası olur. Aslında bu tam olarak doğru değil: Swift, "yazarken kopyalama" adı verilen bir teknik kullanır; bu da verilerinizi yalnızca siz değiştirmeye çalıştığınızda kopyaladığı anlamına gelir.*/
 
 
 //Bir yapı içine bir fonksiyon yazdığınızda, ona metot denir.
