@@ -22,7 +22,7 @@ latitude = 32.651123232
 var longitude: Float
 longitude = -161.43332323
 
-/*Bunun nedeni, yine Doubleiki kat daha fazla doğruluğa sahip olması Floatve böylece sayınızı sığdırmak için kısaltmasına gerek olmamasıdır.*/
+/*Bunun nedeni, yine Double ın Floata göre iki kat daha fazla doğruluğa sahip olması ve böylece sayınızı sığdırmak için kısaltmasına gerek olmamasıdır.*/
 
 
 //Boolean
