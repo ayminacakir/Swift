@@ -19,7 +19,7 @@ sağlamak için get veya set kullanın.
 swift dilinde static özelliği bir proportynin veya methodun tüm tip 
 (struct,class,enum) için ortak olmasını sağlar. bu belleği daha verimli 
 kullanmamızı ve mantık olarak tüm örneklerde(instance) ortak olan 
-verileri bir araya toplamk için kullanışlıdırç 
+verileri bir araya toplamak için kullanışlıdır 
             
             struct TaylorFan {
             static let favoriteSong = "Look What You Made Me Do"
@@ -31,9 +31,9 @@ verileri bir araya toplamk için kullanışlıdırç
             let fan = TaylorFan(name: "Ada", age: 25)
             print(TaylorFan.favoriteSong)
 
-/*name ve age: Bu değişkenler her bir TaylorFan örneğine (instance) özgüdür. Yani farklı kişilerin farklı adları ve yaşları olabilir.
+name ve age: Bu değişkenler her bir TaylorFan örneğine (instance) özgüdür. Yani farklı kişilerin farklı adları ve yaşları olabilir.
  
- favoriteSong: Bu ise struct’a ait bir değişkendir. Tüm TaylorFan'ler için ortaktır. Bunu bir örnek üzerinden değil, doğrudan TaylorFan.favoriteSong şeklinde çağırıyoruz.*/
+ favoriteSong: Bu ise struct’a ait bir değişkendir. Tüm TaylorFan'ler için ortaktır. Bunu bir örnek üzerinden değil, doğrudan TaylorFan.favoriteSong şeklinde çağırıyoruz.
 
 
 ⚠️ Önemli Kural:
