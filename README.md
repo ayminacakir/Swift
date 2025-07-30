@@ -1,5 +1,5 @@
 # review day2
-## Day One
+
 ### Functions
 
 
